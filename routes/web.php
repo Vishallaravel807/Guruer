@@ -59,7 +59,7 @@ Route::any('/guruerDetail/{id}', [HomeController::class, 'guruerDetail']);
 Route::get('/AllTailors', [HomeController::class, 'searchTailor']);
 Route::get('/tailorDetails/{id}', [HomeController::class, 'tailorDetails']);
 
-//demo code route 
+//demo code route
 Route::get('/productList', [HomeController::class, 'productList']);
 Route::get('/vendorDash', [HomeController::class, 'vendorDash']);
 
@@ -69,7 +69,7 @@ Route::group(['middleware'=>['web','checkUser']],function(){
     Route::any('/customerProfile', [CustomerController::class, 'updateProfile']);
     //Route::post('/profile_update', [CustomerController::class, 'profile_update']);
     Route::get('/customerDashboard',[CustomerController::class, 'customerDashboard']);
-    
+
 
 });
 /****************************[CUSTOMER AUTH END]************************************/
@@ -127,21 +127,19 @@ Route::group(['middleware'=>['web','checkAdmin']],function(){
 
 
 	/********************[Master Route ]*************************/
-    Route::get('/admin/getSize', [MasterController::class, 'getSize'])->name('getSize');
-    Route::any('/admin/addSize/{id?}', [MasterController::class, 'addSize'])->name('addSize');
-    Route::post('/admin/changesizeStatus', [MasterController::class, 'changesizeStatus'])->name('changesizeStatus');
-    Route::get('/admin/deleteSize/{id}', [MasterController::class, 'deleteSize'])->name('deleteSize');
 
-    Route::get('/admin/getColor', [MasterController::class, 'getColor'])->name('getColor');
-    Route::any('/admin/addColor/{id?}', [MasterController::class, 'addColor'])->name('addColor');
-    Route::post('/admin/changeColorStatus', [MasterController::class, 'changeColorStatus'])->name('changeColorStatus');
+
+    Route::get('/admin/Subjects', [MasterController::class, 'Subject']);
+    Route::any('/admin/addSubject/{id?}', [MasterController::class, 'addSubject']);
+    Route::post('/admin/getsubcategories', [MasterController::class, 'getSubcategories'] );
+    Route::post('/admin/changesubjectStatus', [MasterController::class, 'changesubjectStatus']);
     Route::get('/admin/deleteColor/{id}', [MasterController::class, 'deleteColor'])->name('deleteColor');
 
     Route::get('/admin/getSpeciality', [MasterController::class, 'getSpeciality'])->name('getSpeciality');
     Route::any('/admin/addSpeciality/{id?}', [MasterController::class, 'addSpeciality'])->name('addSpeciality');
     Route::post('/admin/changeSpecialityStatus', [MasterController::class, 'changeSpecialityStatus'])->name('changeSpecialityStatus');
     Route::get('/admin/deleteSpeciality/{id}', [MasterController::class, 'deleteSpeciality'])->name('deleteSpeciality');
-	
+
 	Route::get('/admin/getFebricType', [MasterController::class, 'getFebricType'])->name('getFebricType');
     Route::any('/admin/addFebricType/{id?}', [MasterController::class, 'addFebricType'])->name('addFebricType');
     Route::post('/admin/changeFebricTypeStatus', [MasterController::class, 'changeFebricTypeStatus'])->name('changeFebricTypeStatus');
@@ -151,11 +149,16 @@ Route::group(['middleware'=>['web','checkAdmin']],function(){
     Route::any('/admin/addPlan/{id?}', [MasterController::class, 'addPlan'])->name('addPlan');
     Route::post('/admin/changePlanStatus', [MasterController::class, 'changePlanStatus'])->name('changePlanStatus');
     Route::get('/admin/deletePlan/{id}', [MasterController::class, 'deletePlan'])->name('deletePlan');
-	
+
 	Route::get('/admin/getCategory', [MasterController::class, 'getCategory'])->name('getCategory');
     Route::any('/admin/addCategory/{id?}', [MasterController::class, 'addCategory'])->name('addCategory');
     Route::post('/admin/changeCategoryStatus', [MasterController::class, 'changeCategoryStatus'])->name('changeCategoryStatus');
     Route::get('/admin/deleteCategory/{id}', [MasterController::class, 'deleteCategory'])->name('deleteCategory');
+
+    Route::get('/admin/getSubcategory', [MasterController::class, 'getSubcategory']);
+    Route::any('/admin/addSubcategory/{id?}', [MasterController::class, 'addSubcategory'])->name('addSubcategory');
+    Route::post('/admin/changesizeStatus', [MasterController::class, 'changesizeStatus'])->name('changesizeStatus');
+    Route::get('/admin/deleteSubcategory/{id}', [MasterController::class, 'deleteSubcategory'])->name('deleteSubcategory');
 
     /********************[CMS Route ]*************************/
     Route::any('/admin/privacyPolicy', [CmsController::class, 'privacyPolicy'])->name('privacyPolicy');
@@ -185,7 +188,7 @@ Route::group(['middleware'=>['vendor']],function(){
     Route::get('/Catalogue',[VendorController::class, 'Catalogue']);
     Route::post('/catalogueStatus',[VendorController::class, 'catalogueStatus']);
 
-    
+
 
 });
 

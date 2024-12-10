@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class GuruerSubject extends Model
 {
     use HasFactory;
-    protected $table = 'master_category';
 
+    protected $table = 'guruer_subjects';
+    protected $primaryKey = 'id';
 
 }

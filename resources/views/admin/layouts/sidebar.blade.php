@@ -38,6 +38,9 @@
           <li>
             <a ><i class="fa fa-asterisk" aria-hidden="true"></i> Settings <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none;">
+                    <li><a href="{{ url('/admin/getCategory') }}">Category</a></li>
+                    <li><a href="{{ url('/admin/getSubcategory') }}">Sub-Category</a></li>
+                    <li><a href="{{ url('/admin/Subjects') }}">Subjects</a></li>
                   <li><a href="{{ route('getPlans') }}">Subsription Plan</a></li>
                 </ul>
           </li>

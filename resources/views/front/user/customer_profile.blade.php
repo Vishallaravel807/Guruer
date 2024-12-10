@@ -14,7 +14,7 @@
 
             <div class="col-md-9">
                 <div class="row profile-setting-form customer-profile">
-                   
+
                         <div class="col-md-9 grid-margin stretch-card customer-profile-card">
                             <div class="card">
                                 <div class="card-body">
@@ -112,6 +112,20 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="exampleSelectGender">Subjects</label>
+                                                    <select  name="subjects[]" class="form-select exampleInputColor" multiple="multiple" required>
+                                                    @if(!empty($subjects))
+                                                    @foreach ($subjects as $value)
+                                                    <option value={{ $value->id }} >{{ $value->subject_name }}</option>
+                                                    @endforeach
+                                                    @else
+
+                                                    @endif
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="exampleTextarea1">Postal Code</label>
@@ -129,7 +143,7 @@
                                             <button type="submit" class="btn btn-primary me-2">Submit</button>
                                             <button class="btn btn-light">Cancel</button>
                                         </div>
-                                        
+
                                 </div>
                             </div>
                         </div>
@@ -216,7 +230,7 @@ window.addEventListener('load', function() {
 
 
   $('#country').change(function () {
-    
+
     var cid = this.value;   //let cid = $(this).val(); we cal also write this.
     $.ajax({
       url: "{{url('/getstate')}}",

@@ -333,8 +333,7 @@ public function vipCustomeredit ($id = ""){
 public function Guruer_list(){
 
     $guruer_list = User::where('user_type','2')->where('is_deleted','0')->get();
-    return view('admin.vendor.tailor_list',compact('guruer_list'));
-    // return view('admin.user_mgmt.customer_list');
+    return view('admin.vendor.guruer_list',compact('guruer_list'));
 }
 
 public function tailorForm(){
@@ -469,6 +468,22 @@ public function guruer_edit($id = ""){
     }
 }
 
+public function delete_vendor_list($id){
+    // $id = base64_decode($id);
+   //  print_r($id);die;
+        $user = User::find($id);
+        $user->delete();
+        // $course = DigitalMedias::find($id);
+        if ($user) {
+           //  session()->flash('success','User Delete successfully');
+            Session::flash('message', 'User Deleted Successfully!');
+        } else {
+            Session::flash('error', 'User not found or could not be deleted!');
+        }
+        // return Redirect('admin/customer-list');
+        return redirect()->back();
+}
+
 public function vendorFilter(Request $request) {
 
     $user_list = Vendor::orderBy('vendor_id', 'desc')->get();
@@ -486,8 +501,6 @@ public function vendorFilter(Request $request) {
 
     return view('admin.vendor.tailor_filter', compact('filteredVendors','user_list'));
 }
-
-
 
 
 //Old project data
@@ -630,5 +643,6 @@ public function vendorFilter(Request $request) {
 
        return redirect()->route('admin.documentList')->with('success', 'Document added successfully!');
    }
+
 
 }
